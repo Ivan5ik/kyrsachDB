@@ -1,6 +1,7 @@
 <h1>
   Transaction
 </h1>
+<%= link_to "Add new Transaction", new_transaction_path, class: "small-btn create-btn" %>
 <table>
   <thead>
     <tr>
@@ -8,6 +9,7 @@
         <th><%= field %></th>
 
       <% end %>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +20,9 @@
           <td><%= transaction.send(field) %></td>
           
         <% end %>
+        <%= render partial:'reuseble/edit_delete',locals:{
+          edit_path:edit_transaction_path(transaction),
+          delete_path:transaction_path(transaction)}%>
       </tr>
     <% end %>
 

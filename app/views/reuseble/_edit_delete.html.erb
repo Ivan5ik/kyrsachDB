@@ -1,0 +1,10 @@
+<td>
+  <div class="flex" style="gap: 10px;">
+    <%= link_to edit_path  do %>
+      <%= image_tag "edit-246.png", class:'styleImg' %>
+    <% end %>
+    <%= button_to delete_path, class:'btn', method: :delete, data: { turbo: false } do %>
+      <%= image_tag "delete.png", class:'styleImgDelete'%>
+    <% end %>
+  </div>
+</td>

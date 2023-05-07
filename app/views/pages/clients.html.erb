@@ -1,6 +1,7 @@
 <h1>
   Client
 </h1>
+<%= link_to "Add new client", new_client_path, class: "small-btn create-btn" %>
 <table>
   <thead>
     <tr>
@@ -8,6 +9,7 @@
         <th><%= field %></th>
 
       <% end %>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +20,9 @@
           <td><%= client.send(field) %></td>
           
         <% end %>
+        <%= render partial:'reuseble/edit_delete',locals:{
+          edit_path:edit_client_path(client),
+          delete_path:client_path(client)}%>
       </tr>
     <% end %>
 

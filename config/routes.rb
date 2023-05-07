@@ -18,5 +18,13 @@ Rails.application.routes.draw do
     end
 
   end
-
+  resources :clients
+  resources :gas_stations
+  resources :fuels
+  resources :administrators
+  resources :loyalty_programs
+  resources :cars
+  resources :transactions
+  resources :user_loyalty_programs
+  resources :current_date_transactions
 end

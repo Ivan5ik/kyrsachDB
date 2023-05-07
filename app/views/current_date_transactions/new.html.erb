@@ -1,0 +1,15 @@
+<div class="centered-div">
+  <h1>Add new current date transaction</h1>
+  <%= form_with model: CurrentDateTransaction.new do |form| %>
+    <% CurrentDateTransaction.column_names.reject { |a| fields_to_exclude.include?(a)}.each do |field| %>
+      <div class="inputs-wrapper">
+        <%= form.label field.humanize, for: "current_date_transaction_#{field.to_sym}" %>
+        <%= form.text_field field.to_sym, required: true %>
+      </div>
+    <% end %>
+    <div class="submit-buttons-wrapper">
+      <%= link_to "Back", current_date_transactions_pages_path %>
+      <%= form.submit "Save" %>
+    </div>
+  <% end %>
+</div>

@@ -1,13 +1,15 @@
 <h1>
   Gas_stations
 </h1>
+<%= link_to "Add new gas station", new_gas_station_path, class: "small-btn create-btn" %>
 <table>
   <thead>
     <tr>
-      <%GasStation.column_names.reject { |col| ["id", "created_at", "updated_at"].include?(col) }.map(&:humanize).each do |field|%>
+      <% GasStation.column_names.reject { |col| ["id", "created_at", "updated_at"].include?(col) }.map(&:humanize).each do |field|%>
         <th><%= field %></th>
 
       <% end %>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +20,9 @@
           <td><%= gas_station.send(field) %></td>
           
         <% end %>
+        <%= render partial:'reuseble/edit_delete',locals:{
+          edit_path:edit_gas_station_path(gas_station),
+          delete_path:gas_station_path(gas_station)}%>
       </tr>
     <% end %>
 

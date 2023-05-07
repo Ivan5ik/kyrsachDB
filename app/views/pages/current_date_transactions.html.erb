@@ -1,6 +1,7 @@
 <h1>
   Current date transaction
 </h1>
+<%= link_to "Add new current date transaction", new_current_date_transaction_path, class: "small-btn create-btn" %>
 <table>
   <thead>
     <tr>
@@ -8,6 +9,7 @@
         <th><%= field %></th>
 
       <% end %>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +20,9 @@
           <td><%= current_date_transaction.send(field) %></td>
           
         <% end %>
+         <%= render partial:'reuseble/edit_delete',locals:{
+          edit_path:edit_current_date_transaction_path(current_date_transaction),
+          delete_path:current_date_transaction_path(current_date_transaction)}%>
       </tr>
     <% end %>
 

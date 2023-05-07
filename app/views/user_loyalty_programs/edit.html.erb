@@ -1,0 +1,17 @@
+<div class="centered-div">
+  <h1>Edit user loyalty programs</h1>
+  <%= form_with model: @user_loyalty_program do |form| %>
+    <%= label_tag :client_id %>
+    <%= form.select :client_id, options_from_collection_for_select(Client.all, :id, :full_name, @user_loyalty_program.client_id), required: true %>
+
+    <%= label_tag :loyalty_program_id %>
+    <%= form.select :loyalty_program_id, options_from_collection_for_select(LoyaltyProgram.all, :id, :loyalty_name, @user_loyalty_program.loyalty_program_id), required: true %>
+
+    <%= form.text_field :count_bonus, required: true %>
+
+    <div class="submit-buttons-wrapper">
+      <%= link_to "Back", user_loyalty_programs_pages_path %>
+      <%= form.submit "Save" %>
+    </div>
+  <% end %>
+</div>

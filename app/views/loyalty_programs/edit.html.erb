@@ -1,0 +1,15 @@
+<div class="centered-div">
+  <h1>Edit loyalty program</h1>
+  <%= form_with model: @loyalty_program do |form| %>
+    <% LoyaltyProgram.column_names.reject { |a| fields_to_exclude.include?(a)}.each do |field| %>
+      <div class="inputs-wrapper">
+        <%= form.label field.humanize, for: "loyalty_program_#{field.to_sym}" %>
+        <%= form.text_field field.to_sym, required: true %>
+      </div>
+    <% end %>
+    <div class="submit-buttons-wrapper">
+      <%= link_to "Back", loyalty_programs_pages_path %>
+      <%= form.submit "Save" %>
+    </div>
+  <% end %>
+</div>

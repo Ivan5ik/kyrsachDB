@@ -1,6 +1,7 @@
 <h1>
   Fuel
 </h1>
+<%= link_to "Add new gas fuel", new_fuel_path, class: "small-btn create-btn" %>
 <table>
   <thead>
     <tr>
@@ -8,6 +9,7 @@
         <th><%= field %></th>
 
       <% end %>
+       <th></th>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +20,9 @@
           <td><%= fuel.send(field) %></td>
           
         <% end %>
+        <%= render partial:'reuseble/edit_delete',locals:{
+          edit_path:edit_fuel_path(fuel),
+          delete_path:fuel_path(fuel)}%>
       </tr>
     <% end %>
 
