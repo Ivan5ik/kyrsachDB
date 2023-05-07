@@ -1,0 +1,22 @@
+<div class="centered-div">
+  <h1>Edit transaction</h1>
+  <%= form_with model: @transaction do |form| %>
+    <%= label_tag :client_id %>
+    <%= form.select :client_id, options_from_collection_for_select(Client.all, :id, :full_name, @transaction.client_id), required: true %>
+    <%= label_tag :car_id %>
+    <%= form.select :car_id, options_from_collection_for_select(Car.all, :id, :car_name, @transaction.car_id), required: true %>
+    <%= label_tag :gas_station_id %>
+    <%= form.select :gas_station_id, options_from_collection_for_select(GasStation.all, :id, :address, @transaction.gas_station_id), required: true %>
+    <%= label_tag :fuel_id %>
+    <%= form.select :fuel_id, options_from_collection_for_select(Fuel.all, :id, :type_fuel, @transaction.fuel_id), required: true %>
+
+    <%= form.text_field :fuel_volume		, required: true %>
+    <%= form.text_field :datatime_refueling, required: true %>
+    <%= form.text_field :total_cost, required: true %>
+    <%= form.text_field :administrator, required: true %>
+    <div class="submit-buttons-wrapper">
+      <%= link_to "Back", transactions_pages_path %>
+      <%= form.submit "Save" %>
+    </div>
+  <% end %>
+</div>

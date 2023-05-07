@@ -1,0 +1,17 @@
+<div class="centered-div">
+  <h1>Edit current date transaction</h1>
+  <%= form_with model: @current_date_transaction do |form| %>
+    <%= label_tag :client_id %>
+    <%= form.select :client_id, options_from_collection_for_select(Client.all, :id, :full_name, @current_date_transaction.client_id), required: true %>
+
+    <%= label_tag :loyalty_program_id %>
+    <%= form.select :loyalty_program_id, options_from_collection_for_select(LoyaltyProgram.all, :id, :loyalty_name, @current_date_transaction.loyalty_program_id), required: true %>
+
+    <%= form.text_field :count_bonus, required: true %>
+
+    <div class="submit-buttons-wrapper">
+      <%= link_to "Back", current_date_transactions_pages_path %>
+      <%= form.submit "Save" %>
+    </div>
+  <% end %>
+</div>

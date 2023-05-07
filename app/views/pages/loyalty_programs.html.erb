@@ -1,6 +1,8 @@
 <h1>
   Loyalty_programs
 </h1>
+<%= link_to "Add new loyalty programs", new_loyalty_program_path, class: "small-btn create-btn" %>
+
 <table>
   <thead>
     <tr>
@@ -8,6 +10,7 @@
         <th><%= field %></th>
 
       <% end %>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +21,9 @@
           <td><%= loyalty_program.send(field) %></td>
           
         <% end %>
+         <%= render partial:'reuseble/edit_delete',locals:{
+          edit_path:edit_loyalty_program_path(loyalty_program),
+          delete_path:loyalty_program_path(loyalty_program)}%>
       </tr>
     <% end %>
 

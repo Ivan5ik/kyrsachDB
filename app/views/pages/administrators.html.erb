@@ -1,6 +1,7 @@
 <h1>
   Administrator
 </h1>
+<%= link_to "Add new administrator", new_administrator_path, class: "small-btn create-btn" %>
 <table>
   <thead>
     <tr>
@@ -8,6 +9,7 @@
         <th><%= field %></th>
 
       <% end %>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +20,9 @@
           <td><%= administrator.send(field) %></td>
           
         <% end %>
+         <%= render partial:'reuseble/edit_delete',locals:{
+          edit_path:edit_administrator_path(administrator),
+          delete_path:administrator_path(administrator)}%>
       </tr>
     <% end %>
 

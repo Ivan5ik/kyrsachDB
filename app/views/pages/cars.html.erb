@@ -1,6 +1,7 @@
 <h1>
   Car
 </h1>
+<%= link_to "Add new car", new_car_path, class: "small-btn create-btn" %>
 
 <table>
   <thead>
@@ -9,6 +10,7 @@
         <th><%= field %></th>
 
       <% end %>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -19,6 +21,9 @@
           <td><%= car.send(field) %></td>
           
         <% end %>
+        <%= render partial:'reuseble/edit_delete',locals:{
+          edit_path:edit_car_path(car),
+          delete_path:car_path(car)}%>
       </tr>
     <% end %>
 

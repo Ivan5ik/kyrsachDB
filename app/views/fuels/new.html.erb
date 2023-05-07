@@ -1,0 +1,15 @@
+<div class="centered-div">
+  <h1>Add new Gas Station</h1>
+  <%= form_with model: Fuel.new do |form| %>
+    <% Fuel.column_names.reject { |a| fields_to_exclude.include?(a)}.each do |field| %>
+      <div class="inputs-wrapper">
+        <%= form.label field.humanize, for: "fuel_#{field.to_sym}" %>
+        <%= form.text_field field.to_sym, required: true %>
+      </div>
+    <% end %>
+    <div class="submit-buttons-wrapper">
+      <%= link_to "Back", fuels_pages_path %>
+      <%= form.submit "Save" %>
+    </div>
+  <% end %>
+</div>
