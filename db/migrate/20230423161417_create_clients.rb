@@ -8,6 +8,7 @@ class CreateClients < ActiveRecord::Migration[7.0]
       t.string :address, null: false
       t.string :credit_card, null: false
       t.timestamps
+      
     end
   end
 end
