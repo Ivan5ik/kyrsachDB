@@ -1,0 +1,27 @@
+<h1>
+  Car
+</h1>
+
+<table>
+  <thead>
+    <tr>
+      <%Car.column_names.reject { |col| ["id", "created_at", "updated_at"].include?(col) }.map(&:humanize).each do |field|%>
+        <th><%= field %></th>
+
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% Car.all.each do |car| %> 
+      <tr>
+        <% Car.column_names.reject { |col| ["id", "created_at", "updated_at"].include?(col) }.each do |field| %>
+        
+          <td><%= car.send(field) %></td>
+          
+        <% end %>
+      </tr>
+    <% end %>
+
+    
+  </tbody>
+</table>
