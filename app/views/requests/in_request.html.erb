@@ -1,0 +1,34 @@
+<%= link_to "Back", requests_path %>
+<h1>
+  Запит на вибірку з використанням «in».
+  Запит поверне всі автомобілі, що працюють на 92 бензині.
+</h1>
+<h2>
+  <%= @sql %>
+</h2>
+<h2>
+  Total Count
+  <%= @records.count %>
+</h2>
+<table>
+  <thead>
+    <tr>
+      <% @records.columns.each do |field| %>
+        <th>
+          <%= field %>
+        </th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @records.each do |record| %>
+      <tr>
+        <% record.each do |_col, val| %>
+          <td>
+            <%= val %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
