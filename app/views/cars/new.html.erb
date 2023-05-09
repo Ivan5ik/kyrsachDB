@@ -1,15 +1,15 @@
 <div class="centered-div">
   <h1>Add new car</h1>
-  <%= form_with model: Car.new do |form| %>
+  <%= form_with model: Car.new, class:'form' do |form| %>
     <% Car.column_names.reject { |a| fields_to_exclude.include?(a)}.each do |field| %>
       <div class="inputs-wrapper">
         <%= form.label field.humanize, for: "car_#{field.to_sym}" %>
         <%= form.text_field field.to_sym, required: true %>
       </div>
     <% end %>
-    <div class="submit-buttons-wrapper">
-      <%= link_to "Back", cars_pages_path %>
-      <%= form.submit "Save" %>
+    <div class="blockSubmitWrapper">
+      <%= link_to "Back", cars_pages_path, class:'wrapperButton back' %>
+      <%= form.submit "Save", class:'wrapperButton saved' %>
     </div>
   <% end %>
 </div>

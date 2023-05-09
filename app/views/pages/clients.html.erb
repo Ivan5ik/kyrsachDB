@@ -1,10 +1,12 @@
 <h1>
   Client
 </h1>
-<%= link_to "Add new client", new_client_path, class: "small-btn create-btn" %>
+<div class='wrapperButton'>
+  <%= link_to "Add new client", new_client_path, class: "create-btn" %>
+</div>
 <table>
   <thead>
-    <tr>
+    <tr class='tr'>
       <%Client.column_names.reject { |col| ["id", "created_at", "updated_at"].include?(col) }.map(&:humanize).each do |field|%>
         <th><%= field %></th>
 
@@ -14,7 +16,7 @@
   </thead>
   <tbody>
     <% Client.all.each do |client| %> 
-      <tr>
+      <tr class='trBody'>
         <% Client.column_names.reject { |col| ["id", "created_at", "updated_at"].include?(col) }.each do |field| %>
         
           <td><%= client.send(field) %></td>

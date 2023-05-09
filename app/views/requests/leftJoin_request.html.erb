@@ -1,18 +1,20 @@
 <%= link_to "Back", requests_path %>
-<h1>
+<h1 class='task'>
   Запит з використанням LEFT JOIN.
+</h1>
+<h1 class='description'>
   Запит поверне таблицю з наступними полями: id клієнта, ім'я клієнта, прізвище клієнта, кількість бонусів у програмі лояльності, назва програми лояльності. Якщо клієнт не має записів у таблиці User_loyalty_programs, то будуть повернуті null значення для полів count_bonus та program_name.
 </h1>
-<h2>
+<h3>
   <%= @sql %>
-</h2>
+</h3>
 <h2>
   Total Count
   <%= @records.count %>
 </h2>
 <table>
   <thead>
-    <tr>
+    <tr class='tr'>
       <% @records.columns.each do |field| %>
         <th>
           <%= field %>
@@ -22,7 +24,7 @@
   </thead>
   <tbody>
     <% @records.each do |record| %>
-      <tr>
+      <tr class='trBody'>
         <% record.each do |_col, val| %>
           <td>
             <%= val %>

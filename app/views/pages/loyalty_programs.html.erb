@@ -1,11 +1,12 @@
 <h1>
-  Loyalty_programs
+  Loyalty programs
 </h1>
-<%= link_to "Add new loyalty programs", new_loyalty_program_path, class: "small-btn create-btn" %>
-
+<div class='wrapperButton'>
+  <%= link_to "Add new loyalty programs", new_loyalty_program_path, class: "small-btn create-btn" %>
+</div>
 <table>
   <thead>
-    <tr>
+    <tr class='tr'>
       <%LoyaltyProgram.column_names.reject { |col| ["id", "created_at", "updated_at"].include?(col) }.map(&:humanize).each do |field|%>
         <th><%= field %></th>
 
@@ -15,7 +16,7 @@
   </thead>
   <tbody>
     <% LoyaltyProgram.all.each do |loyalty_program| %> 
-      <tr>
+      <tr class='trBody'>
         <% LoyaltyProgram.column_names.reject { |col| ["id", "created_at", "updated_at"].include?(col) }.each do |field| %>
         
           <td><%= loyalty_program.send(field) %></td>

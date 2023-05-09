@@ -1,10 +1,13 @@
 <h1>
   Transaction
 </h1>
-<%= link_to "Add new Transaction", new_transaction_path, class: "small-btn create-btn" %>
+<div class='wrapperButton'>
+  <%= link_to "Add new Transaction", new_transaction_path, class: "small-btn create-btn" %>
+</div>
+
 <table>
   <thead>
-    <tr>
+    <tr class='tr'>
       <%Transaction.column_names.reject { |col| ["id", "created_at", "updated_at"].include?(col) }.map(&:humanize).each do |field|%>
         <th><%= field %></th>
 
@@ -14,7 +17,7 @@
   </thead>
   <tbody>
     <% Transaction.all.each do |transaction| %> 
-      <tr>
+      <tr class='trBody'>
         <% Transaction.column_names.reject { |col| ["id", "created_at", "updated_at"].include?(col) }.each do |field| %>
         
           <td><%= transaction.send(field) %></td>

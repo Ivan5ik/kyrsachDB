@@ -7,9 +7,9 @@
         <%= form.text_field field.to_sym, required: true %>
       </div>
     <% end %>
-    <div class="submit-buttons-wrapper">
-      <%= link_to "Back", gas_stations_pages_path %>
-      <%= form.submit "Save" %>
+    <div class="blockSubmitWrapper">
+      <%= link_to "Back", gas_stations_pages_path, class:'wrapperButton back' %>
+      <%= form.submit "Save", class:'wrapperButton saved' %>
     </div>
   <% end %>
 </div>

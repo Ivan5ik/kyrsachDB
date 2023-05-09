@@ -13,8 +13,87 @@
  *= require_tree .
  *= require_self
  */
+.wrapperNavigation > a {
+  text-decoration: none;
+  font-size: 20px;
+  margin-right: 5px;
+}
+
 .flex {
   display: flex;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.create-btn {
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 17px;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.tr {
+  background-color: gray;
+}
+
+.blockSubmitWrapper {
+  display: flex;
+  column-gap: 20px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.wrapperButton {
+  background-color: #151f4e;
+  width: fit-content;
+  border-radius: 10px;
+  display: block;
+  justify-content: flex-start;
+  padding: 15px 0 15px 0;
+  margin-bottom: 25px;
+}
+
+.back {
+  background-color: #87bbc7;
+  padding: 15px 15px 15px 15px;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  width: 33px;
+  height: 14px;
+  margin-bottom: 0px;
+}
+
+.inputs-wrapper {
+  padding: 5px 15px 15px 5px;
+  color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+}
+
+.gap {
+  row-gap: 20px;
+}
+
+.inputs-wrapper input {
+  padding: 12px 5px 12px 5px;
+  border-radius: 10px;
+}
+
+.saved {
+  width: 60px;
+  background-color: #91c787;
+  padding: 15px 15px 15px 15px;
+  cursor: pointer;
+  border: none;
+  margin-bottom: 0px;
 }
 
 .styleImg {
@@ -37,4 +116,23 @@
   width: 25px;
   height: 25px;
   cursor: pointer;
+}
+
+.request {
+  display: flex;
+  flex-direction: column;
+}
+
+.request > a {
+  color: black;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.task {
+  font-size: 25px;
+}
+
+.description {
+  font-size: 20px;
 }

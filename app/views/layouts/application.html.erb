@@ -11,6 +11,7 @@
   </head>
 
   <body>
+  <div class='wrapperNavigation'>
     <%= link_to "Clients", clients_pages_path %>
     <%= link_to "Cars", cars_pages_path %>
     <%= link_to "Gas stations", gas_stations_pages_path %>
@@ -23,5 +24,6 @@
     <%= link_to "Requests", requests_path %>
     <%= link_to "Home", root_path %>
     <%= yield %>
+    </div>
   </body>
 </html>

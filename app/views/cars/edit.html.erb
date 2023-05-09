@@ -1,19 +1,27 @@
 <div class="centered-div">
   <h1>Edit car</h1>
-  <%= form_with model: @car do |form| %>
+  <%= form_with model: @car, class:'form' do |form| %>
+  <div class="inputs-wrapper gap">
+    <%= label_tag :brand %>
     <%= form.text_field :brand, required: true %>
+    <%= label_tag :model %>
     <%= form.text_field :model, required: true %>
+    <%= label_tag :graduation_year %>
     <%= form.text_field :graduation_year, required: true %>
+    <%= label_tag :year_license_plate %>
     <%= form.text_field :year_license_plate	, required: true %>
+    <%= label_tag :tank_volume %>
     <%= form.text_field :tank_volume	, required: true %>
+    <%= label_tag :engine_power %>
     <%= form.text_field :engine_power, required: true %>
+    <%= label_tag :type_fuel %>
     <%= form.text_field :type_fuel, required: true %>
     <%= label_tag :client_id %>
     <%= form.select :client_id, options_from_collection_for_select(Client.all, :id, :full_name, @car.client_id), required: true %>
-
-    <div class="submit-buttons-wrapper">
-      <%= link_to "Back", cars_pages_path %>
-      <%= form.submit "Save" %>
+  </div>
+    <div class="blockSubmitWrapper">
+      <%= link_to "Back", cars_pages_path, class:'wrapperButton back' %>
+      <%= form.submit "Save", class:'wrapperButton saved' %>
     </div>
   <% end %>
 </div>

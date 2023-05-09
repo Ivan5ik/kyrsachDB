@@ -1,18 +1,20 @@
 <%= link_to "Back", requests_path %>
-<h1>
+<h1 class='task'>
   Запит на вибірку з використанням «like».
+</h1>
+<h1 class='description'>
   Запит поверне всіх клієнтів, чиє ім'я починається з літери "J".
 </h1>
-<h2>
+<h3>
   <%= @sql %>
-</h2>
+</h3>
 <h2>
   Total Count
   <%= @records.count %>
 </h2>
 <table>
   <thead>
-    <tr>
+    <tr class='tr'>
       <% @records.columns.each do |field| %>
         <th>
           <%= field %>
@@ -22,7 +24,7 @@
   </thead>
   <tbody>
     <% @records.each do |record| %>
-      <tr>
+      <tr class='trBody'>
         <% record.each do |_col, val| %>
           <td>
             <%= val %>
