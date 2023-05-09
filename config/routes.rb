@@ -94,11 +94,6 @@ Rails.application.routes.draw do
   end
   resources :requests, only: :index do
     collection do
-      get :aggregateFuncSort_request
-    end
-  end
-  resources :requests, only: :index do
-    collection do
       get :innerJoin_request
     end
   end

@@ -66,11 +66,6 @@ class RequestsController < ApplicationController
     @sql = "SELECT client_id, SUM(total_cost) FROM Transactions GROUP BY client_id HAVING SUM(total_cost) > 10000"
     @records = ActiveRecord::Base.connection.exec_query(@sql)
   end
-  
-  def aggregateFuncSort_request
-    @sql = "SELECT car_id, AVG(fuel_volume), MAX(total_cost), COUNT(*) FROM Transactions WHERE fuel_id = 2 GROUP BY car_id HAVING COUNT(*) > 1 ORDER BY AVG(fuel_volume) DESC"
-    @records = ActiveRecord::Base.connection.exec_query(@sql)
-  end
   def innerJoin_request
     @sql = "SELECT Clients.name, Loyalty_programs.name, User_loyalty_programs.count_bonus FROM User_loyalty_programs INNER JOIN Clients ON Clients.id = User_loyalty_programs.client_id INNER JOIN Loyalty_programs ON Loyalty_programs.id = User_loyalty_programs.loyalty_program_id"
     @records = ActiveRecord::Base.connection.exec_query(@sql)
